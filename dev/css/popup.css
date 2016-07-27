@@ -1,0 +1,1 @@
+.popup{position:fixed;z-index:999;background:rgba(0,0,0,0.5);left:0;right:0;height:100%;bottom:100%;transition:all .5s;opacity:0}.popup--visible{bottom:0;opacity:1}.popup--visible .popup__content{display:block}.popup__iframe{width:560px;height:315px;position:absolute;left:0;right:0;bottom:0;top:0;margin:auto}.popup__content{display:none}

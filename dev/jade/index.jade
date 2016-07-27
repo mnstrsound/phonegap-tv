@@ -1,0 +1,74 @@
+doctype html
+html
+    head
+        link(rel='stylesheet', href='css/build.css')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(charset="utf-8")
+    body
+        .popup
+            .popup__iframe
+
+        iframe#channel1.popup__content(src='https://www.youtube.com/embed/XBleNfmkScA', allowfullscreen, frameborder='0', width="560" height="315")
+        .week.container
+            .week__days
+                mixin weekDay(day)
+                    .week__day(class=typeof day.holiday === 'undefined' ? '' : 'week__day--holiday')
+                        .week__day-date= day.date
+                        .week__day-name= day.name
+                        .week__day-abbr= day.abbr
+                each day in days
+                    +weekDay(day)
+                .week__next-day
+        .sorting.container
+            .sorting__span.
+                Выделить:
+            mixin checkbox(checkbox)
+                .checkbox
+                    input.checkbox__input(type='checkbox', name=checkbox.name, value=checkbox.value, class=checkbox.className, id=checkbox.id, checked=checkbox.checked)
+                    label.checkbox__control(for=checkbox.id)
+                    label.checkbox__label(for=checkbox.id)= checkbox.label
+            - var checkboxes = []
+            each checkbox in sorting
+                +checkbox(checkbox)
+
+        .channels.container
+            each day, i in parsedProgram
+                .channels__row
+                    - var j = 0
+                    while j < 5
+                        - j++
+                        - var channel = parsedProgram[i][j]
+                        .channel
+                            .channel__title
+                                .channel__logo(style="background-image:" + channel.logo)
+                                .channel__inline
+                                    .channel__name= channel.name
+                                    .channel__watch
+                                        a(href="#channel1")
+                                            span
+                                            small.
+                                                Смотреть онлайн
+                            .channel__programs
+                                each program in channel.programs
+                                    .program(class='program--' + program.genre.key)
+                                        .program__inner
+                                            .program__title
+                                                .program__time
+                                                    span= program.time
+                                                .program__name= program.name
+                                            .program__desc
+                                                .program__desc-img
+                                                    img(src="img/channels/channel1/program1.jpg")
+                                                .program__desc-title= program.name
+
+                                                .program__desc-genre
+                                                    span= program.genre.name
+
+                                                .program__desc-text.
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias atque cum debitis eius exercitationem expedita ipsa ipsam itaque magnam maiores, minima minus officiis pariatur placeat quaerat quasi reprehenderit tempora.
+        script(src='js/jquery.min.js')
+        script(src='js/app.js')
+        script(type="text/javascript", src="cordova.js")
+        script(type="text/javascript", src="js/index.js")
+        script(type="text/javascript").
+            app.initialize();

@@ -1,0 +1,95 @@
+@import "grid";
+
+.channel {
+  margin-bottom: 20px;
+  @include make-column();
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__logo {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &__inline {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7px;
+  }
+  &__name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__watch {
+    margin-top: -4px;
+    &:hover {
+      a {
+        text-decoration: underline;
+        color: #f00;
+      }
+      span {
+        border-color: #ff0000;
+        &:before {
+          border-left-color: #f00;
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    span {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #000;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 50%;
+      &:before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 4px;
+        left: 5px;
+        border: 3px solid transparent;
+        border-left: 6px solid #000;
+        border-right: 0;
+      }
+    }
+    small {
+      font-size: 12px;
+      margin-left: 3px;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-xs) {
+  .channel {
+    @include column-width(1, 2);
+  }
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+  .channel {
+    @include column-width(1, 3);
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  .channel {
+    @include column-width(1, 4);
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  .channel {
+    @include column-width(1, 5);
+  }
+}

@@ -1,0 +1,35 @@
+@import "grid";
+
+.sorting {
+  margin-bottom: 15px;
+  &__span {
+    display: none;
+    vertical-align: bottom;
+    font-size: 14px;
+  }
+  .checkbox {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-xs - 1) {
+  .sorting {
+    &__span {
+      display: inline-block;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-sm - 1) {
+
+}
+
+@media screen and (min-width: $breakpoint-md - 1) {
+
+}
+
+@media screen and (min-width: $breakpoint-lg - 1) {
+
+}

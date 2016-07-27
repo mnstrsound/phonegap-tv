@@ -1,0 +1,31 @@
+@import "grid";
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  @include make-paddings();
+}
+
+@media screen and (min-width: $breakpoint-xs - 1) {
+  .container {
+    width: $breakpoint-xs;
+  }
+}
+
+@media screen and (min-width: $breakpoint-sm - 1) {
+  .container {
+    width: $breakpoint-sm;
+  }
+}
+
+@media screen and (min-width: $breakpoint-md - 1) {
+  .container {
+    width: $breakpoint-md;
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg - 1) {
+  .container {
+    width: $breakpoint-lg;
+  }
+}

@@ -1,0 +1,63 @@
+@import "grid";
+
+.checkbox {
+  &__input {
+    display: none;
+    &:checked {
+      &[value="film"] {
+        & + .checkbox__control {
+          background: $film-bg;
+        }
+      }
+      &[value="serial"] {
+        & + .checkbox__control {
+          background: $serial-bg;
+        }
+      }
+      &[value="sport"] {
+        & + .checkbox__control {
+          background: $sport-bg;
+        }
+      }
+      //background: #ffdb4c;
+      & + .checkbox__control {
+        &:before {
+          content: '';
+          width: 17px;
+          height: 17px;
+          position: absolute;
+          top: -3px;
+          right: -5px;
+          background: url('../img/icons/accept.svg') center no-repeat;
+        }
+      }
+    }
+  }
+  &__control {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+  }
+  &__label {
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left: 3px;
+  }
+}
+@media screen and (max-width: $breakpoint-xs) {
+  .checkbox {
+    &__input {
+
+    }
+    &__control {
+
+    }
+  }
+}

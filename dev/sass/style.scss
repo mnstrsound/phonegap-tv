@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700,300&subset=latin,cyrillic);
+@import "grid";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: $font-size;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+}
+
+.channels {
+  &__row {
+    display: none;
+    @include make-row();
+    &--visible {
+      display: block;
+    }
+  }
+}
